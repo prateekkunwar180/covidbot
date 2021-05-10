@@ -14,6 +14,7 @@ intents:
   - oxygen
   - plasma
   - remdesivir
+  - ambulance
   - bot_challenge
   - volunteer
   - medicine
@@ -26,7 +27,7 @@ actions:
   - Get_Hospital
   - Get_REMDESIVIR
   - Get_Plasma
-  - Get_Medicine
+  - Get_Ambulance
 slots:
   city:
     type: text
@@ -62,8 +63,8 @@ responses:
           payload: "/oxygen"
         - title: "Plasma"
           payload: "/plasma"
-        - title: "Medicine"
-          payload: "/medicine"
+        - title: "Ambulance"
+          payload: "/ambulance"
         - title: "Remdesivir"
           payload: "/remdesivir"
         - title: "Become a Volunteer"

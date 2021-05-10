@@ -54,6 +54,14 @@ stories:
   - action: Get_Hospital
   - action: utter_restart
 
+
+- story: ambulance
+  steps:
+  - intent: ambulance
+  - action: Get_Ambulance
+  - action: utter_restart
+
+
 - story: out of scope
   steps:
   - intent: nlu_fallback

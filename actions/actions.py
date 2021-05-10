@@ -16,7 +16,7 @@ from .getData import needOxygen
 from .getData import needHospital
 from .getData import needPlasma
 from .getData import needRemdesivir
-from .getData import needMedicine
+from .getData import needAmbulance
 
 
 class Get_Data(Action):
@@ -137,7 +137,7 @@ class Get_Data3(Action):
 class Get_Data4(Action):
 
     def name(self) -> Text:
-        return "Get_Medicine"
+        return "Get_Ambulance"
 
     @staticmethod
     def required_slots(tracker: "Tracker") -> List[Text]:
@@ -151,7 +151,7 @@ class Get_Data4(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        payload = needMedicine(tracker.get_slot('city'))
+        payload = needAmbulance(tracker.get_slot('city'))
 
         for i in payload:
             dispatcher.utter_message("Contact person: {} , PhoneNumber:{}".format(i[0],i[-1]))

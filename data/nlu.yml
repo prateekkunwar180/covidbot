@@ -84,10 +84,19 @@ nlu:
     - need medicine
     - medicine
 
+- intent: ambulance
+  examples: |
+    - I need ambulance
+    - ambulance required
+    - Can you help me with ambulance
+    - need ambulance
+    - ambulance
+
 - lookup: city
   examples: |
     - gajiyabad
     - jamtara
+    - रांची
 
 - intent: city
   examples: |

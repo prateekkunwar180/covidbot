@@ -12,7 +12,7 @@ creds = service_account.Credentials.from_service_account_file(
 service = build('sheets', 'v4', credentials=creds)
 sheet = service.spreadsheets()
 result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range="covid!A1:L10000").execute()
+                                range="covid!A1:M10000").execute()
 
 values= result.get('values', [])
 data1=values[1::]
@@ -30,7 +30,7 @@ def needOxygen(city):
 def needPlasma(city):
     outputData = []
     for data in data1:
-        if (data[4] == "Y" and data[1] == city.lower()):
+        if (data[4] == "Y" and city.lower() in data[1].lower()):
             requiredData = (data[0], data[-1])
             outputData.append(requiredData)
             print("Contact person: {} , PhoneNumber:{}".format(data[0], data[-1]))
@@ -42,18 +42,17 @@ def needPlasma(city):
 def needRemdesivir(city):
     outputData = []
     for data in data1:
-        if (data[5] == "Y" and data[1] == city.lower()):
+        if (data[5] == "Y" and city.lower() in data[1].lower()):
             requiredData = (data[0], data[-1])
             outputData.append(requiredData)
             print("Contact person: {} , PhoneNumber:{}".format(data[0], data[-1]))
 
     return outputData
-
 
 def needHospital(city):
     outputData = []
     for data in data1:
-        if (data[6] == "Y" and data[1] == city.lower()):
+        if (data[7] == "Y" and city.lower() in data[1].lower()):
             requiredData = (data[0], data[-1])
             outputData.append(requiredData)
             print("Contact person: {} , PhoneNumber:{}".format(data[0], data[-1]))
@@ -61,10 +60,10 @@ def needHospital(city):
     return outputData
 
 
-def needMedicine(city):
+def needAmbulance(city):
     outputData = []
     for data in data1:
-        if (data[8] == "Y" and data[1] == city.lower()):
+        if (data[6] == "Y" and city.lower() in data[1].lower()):
             requiredData = (data[0], data[-1])
             outputData.append(requiredData)
             print("Contact person: {} , PhoneNumber:{}".format(data[0], data[-1]))
